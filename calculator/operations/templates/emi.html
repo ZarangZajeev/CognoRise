@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container d-flex flex-column justify-content-center align-items-center">
+        <h1 class="mt-4">Equated Monthly Installment</h1>
+        <div class="d-flex flex-column justify-content-center align-items-center border-dark border-3 p-4 shadow rounded-2" style="width: 600px;">
+            <form action="" method="post">
+                {%csrf_token%}
+                <div class="mb-4 d-flex flex-column align-items-center">
+                    <div class="mb-2">
+                        <label for="">Loan Amount</label>
+                    </div>
+                    <input class="border border-top-0 rounded-3" type="text" name="amount" id="" placeholder="Amount">
+                </div>
+                <div class="mb-4 d-flex flex-column align-items-center">
+                    <div class="mb-2">
+                        <label for="">Interest Rate</label>
+                    </div>
+                    <input class="border border-top-0 rounded-3" type="text" name="interest" id="" placeholder="Interest">
+                </div>
+                <div class="mb-4 d-flex flex-column align-items-center">
+                    <div class="mb-2">
+                        <label for="">Tenure</label>
+                    </div>
+                    <input class="border border-top-0 rounded-3" type="text" name="tenure" id="" placeholder="Tenure">
+                </div>
+                <div class="mb-3">
+                    <button class="rounded-3 border border-0" type="submit">Calculate monthly EMI</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container d-flex justify-content-center mt-4">
+        <div class="w-50 border p-4 shadow d-flex justify-content-center float-start rounded-3"">
+            {%if emi%}
+                <div class="text-center">
+                    <div><strong>EMI: </strong>{{emi}}</div>
+                    <div><strong>Total payable amount: </strong>{{total}}</div>
+                    <div><strong>Total interest : </strong>{{interest}}</div>
+                </div>
+            {%endif%}
+        </div>
+    </div>
+</body>
+</html>
